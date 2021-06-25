@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.vivod = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
+            this.savee = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.LoanAmount = new System.Windows.Forms.Label();
             this.NumberOfDays = new System.Windows.Forms.Label();
@@ -63,14 +63,14 @@
             this.vivod.Text = "Вывести таблицу с расчетами";
             this.vivod.UseVisualStyleBackColor = true;
             // 
-            // save
+            // savee
             // 
-            this.save.Location = new System.Drawing.Point(616, 70);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(172, 23);
-            this.save.TabIndex = 2;
-            this.save.Text = "Сохранить таблицу";
-            this.save.UseVisualStyleBackColor = true;
+            this.savee.Location = new System.Drawing.Point(616, 70);
+            this.savee.Name = "savee";
+            this.savee.Size = new System.Drawing.Size(172, 23);
+            this.savee.TabIndex = 2;
+            this.savee.Text = "Сохранить таблицу";
+            this.savee.UseVisualStyleBackColor = true;
             // 
             // delete
             // 
@@ -187,7 +187,7 @@
             this.Controls.Add(this.NumberOfDays);
             this.Controls.Add(this.LoanAmount);
             this.Controls.Add(this.delete);
-            this.Controls.Add(this.save);
+            this.Controls.Add(this.savee);
             this.Controls.Add(this.vivod);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -201,7 +201,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button vivod;
-        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button savee;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Label LoanAmount;
         private System.Windows.Forms.Label NumberOfDays;
