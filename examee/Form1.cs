@@ -12,40 +12,77 @@ namespace examee
 {
     public partial class Form1 : Form
     {
-        int sums;
+        int sum;
         int days;
-        DataGridView dataGridView1 = new DataGridView();
-        void Funtcion()
-        {
-
-            dataGridView1.Size = new Size(600, 400);
-            /*создание столбцов*/
-            //1 столбец, текстовый
-            DataGridViewTextBoxColumn column0 = new DataGridViewTextBoxColumn();
-            column0.Name = "day";
-            column0.HeaderText = "День";
-            //2 столбец, текстовый
-            DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
-            column1.Name = "stavka";
-            column1.HeaderText = "Ставка";
-            //3 столбец, изображение
-            DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
-            column2.Name = "procent";
-            column2.HeaderText = "%(накопительно)";
-
-            DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
-            column2.Name = "sum";
-            column2.HeaderText = "Сумма выплаты";
-            //добавляем столбцы
-            dataGridView1.Columns.AddRange(column0, column1, column2, column3);
-        }
         public Form1()
         {
             InitializeComponent();
-            this.Controls.Add(dataGridView1);
-            Funtcion();
+        }
+
+        private void vivod_Click(object sender, EventArgs e)
+        {
+            double a;
+            a = Convert.ToDouble(textBox1.Text);
+            if (a >= 500000)
+            {
+                MessageBox.Show("Более 500000 не выдаем");
+                Application.Restart();
+            }
+            days = Convert.ToInt32(days1.Text);
+            if (days > 0 && days < 6)
+            {
+                stavka.Text = "1-5 дни 0.9%";
+            }
+
+            else if (days > 5 && days < 11)
+            {
+                stavka.Text = "6-10 дни 0.7%";
+            }
+
+            else if (days > 10 && days < 366)
+            {
+                stavka.Text = "11 и больше дней 0.6%";
+            }
+            switch (stavka.Text)
+            {
+                case "1-5 дни 0.9%":
+
+                    if (days > 0 && days < 6)
+                    {
+                        boxresult.Text = Convert.ToString((a / 100) * 0.9 * days + a);
+                        break;
+                    }
+                    Application.Restart();
+                    break;
+                case "6-10 дни 0.7%":
+                    if (days > 5 && days < 11)
+                    {
+                        boxresult.Text = Convert.ToString(((a / 100) * 0.9 * 5) + ((a / 100) * 0.7 * (days - 5) + a));
+                        break;
+                    }
+                    Application.Restart();
+                    break;
+                case "11 и больше дней 0.6%":
+                    if (days > 10 && days < 366)
+                    {
+                        double d = ((a / 100) * 0.9 * 5) + ((a / 100) * 0.7 * 5) + ((a / 100) * 0.6 * (days - 10) + a);
+
+                        if ((a * 2.5) < d)
+                        {
+                            d = a * 2.5;
+                        }
+                        boxresult.Text = Convert.ToString(d);
+                        break;
+                    }
+                    Application.Restart();
+                    break;
+            }
+            double b;
+            b = Convert.ToDouble(procent.Text);
+            b = ;
         }
 
         
     }
 }
+
