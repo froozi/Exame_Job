@@ -77,12 +77,12 @@ namespace examee
                     Application.Restart();
                     break;
             }
-            double b;
-            b = Convert.ToDouble(procent.Text);
-            b = ;
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
